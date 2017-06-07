@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '../../containers/Header'
 import MainSection from '../../containers/MainSection'
-import 'todomvc-app-css/index.css'
+import '../../index.css'
 
 const App = ({todos, actions}) => (
   <div>
