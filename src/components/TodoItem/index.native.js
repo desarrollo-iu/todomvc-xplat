@@ -9,6 +9,7 @@ import {
 import PropTypes from 'prop-types'
 import TodoTextInput from '../TodoTextInput'
 import container from '../../containers/TodoItem'
+import withFadeIn from '../../hocs/withFadeIn'
 
 const TodoItem = ({
   todo, editing, completeTodo, deleteTodo, handleSave, handleDoubleClick
@@ -92,4 +93,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default container(TodoItem)
+export default withFadeIn(container(TodoItem))
