@@ -6,6 +6,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
+import {
+  compose,
+  pure
+} from 'recompose'
 import PropTypes from 'prop-types'
 import TodoTextInput from '../TodoTextInput'
 import container from '../../containers/TodoItem'
@@ -93,4 +97,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export default withFadeIn(container(TodoItem))
+export default compose(
+  withFadeIn,
+  container,
+  pure
+)(TodoItem)
