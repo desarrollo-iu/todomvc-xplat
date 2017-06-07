@@ -9,7 +9,7 @@ import { AppRegistry } from 'react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './src/reducers';
-import App from './src/containers/App';
+import App from './src/components/App';
 
 const store = createStore(reducer);
 

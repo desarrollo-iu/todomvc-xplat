@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../../containers/Header'
-import MainSection from '../../containers/MainSection'
+import Header from '../../components/Header'
+import MainSection from '../../components/MainSection'
+import container from '../../containers/App'
 import '../../index.css'
 
 const App = ({todos, actions}) => (
@@ -16,4 +17,4 @@ App.propTypes = {
   actions: PropTypes.object.isRequired
 }
 
-export default App
+export default container(App)

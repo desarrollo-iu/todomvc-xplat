@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import HeaderComponent from '../components/Header'
 
-export default class Header extends Component {
+const container = T => class Header extends Component {
   static propTypes = {
     addTodo: PropTypes.func.isRequired
   }
@@ -14,6 +13,8 @@ export default class Header extends Component {
   }
 
   render() {
-    return <HeaderComponent handleSave={this.handleSave} />
+    return <T handleSave={this.handleSave} />
   }
 }
+
+export default container

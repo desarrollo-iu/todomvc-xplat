@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TodoTextInput from '../TodoTextInput'
+import container from '../../containers/TodoItem'
 
 const TodoItem = ({
   todo, editing, completeTodo, deleteTodo, handleSave, handleDoubleClick
@@ -47,4 +48,4 @@ TodoItem.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
 }
 
-export default TodoItem
+export default container(TodoItem)

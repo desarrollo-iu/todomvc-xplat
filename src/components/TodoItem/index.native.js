@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import TodoTextInput from '../TodoTextInput'
+import container from '../../containers/TodoItem'
 
 const TodoItem = ({
   todo, editing, completeTodo, deleteTodo, handleSave, handleDoubleClick
@@ -91,4 +92,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default TodoItem
+export default container(TodoItem)

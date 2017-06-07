@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import TodoItem from '../../containers/TodoItem'
+import container from '../../containers/MainSection'
+import TodoItem from '../../components/TodoItem'
 import Footer from '../Footer'
 
-export default class MainSection extends Component {
+class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,
@@ -57,3 +58,5 @@ export default class MainSection extends Component {
     )
   }
 }
+
+export default container(MainSection)

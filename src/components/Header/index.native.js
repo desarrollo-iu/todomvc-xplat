@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import TodoTextInput from '../TodoTextInput'
+import container from '../../containers/Header'
 
 const Header = ({ handleSave }) => (
   <View style={styles.header}>
@@ -34,4 +35,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Header
+export default container(Header)

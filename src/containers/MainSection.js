@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import MainSectionComponent from '../components/MainSection'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
 const TODO_FILTERS = {
@@ -9,7 +8,7 @@ const TODO_FILTERS = {
   [SHOW_COMPLETED]: todo => todo.completed
 }
 
-export default class MainSection extends Component {
+const container = T => class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
@@ -36,7 +35,7 @@ export default class MainSection extends Component {
     )
 
     return (
-      <MainSectionComponent
+      <T
         todos={todos}
         actions={actions}
         filteredTodos={filteredTodos}
@@ -48,3 +47,5 @@ export default class MainSection extends Component {
     )
   }
 }
+
+export default container

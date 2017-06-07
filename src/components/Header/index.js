@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TodoTextInput from '../TodoTextInput'
+import container from '../../containers/Header'
 
 const Header = ({ handleSave }) => (
   <header className="header">
@@ -15,4 +16,4 @@ Header.propTypes = {
   handleSave: PropTypes.func.isRequired
 }
 
-export default Header
+export default container(Header)

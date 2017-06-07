@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../../containers/Header';
-import MainSection from '../../containers/MainSection';
+import Header from '../../components/Header';
+import MainSection from '../../components/MainSection';
+import container from '../../containers/App'
 import {
   ScrollView,
   StyleSheet,
@@ -29,9 +30,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'whitesmoke',
   },
-  todo: {
-    backgroundColor: 'red'
-  }
 });
 
-export default App
+export default container(App)

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import TodoItemComponent from '../components/TodoItem'
 
-export default class TodoItem extends Component {
+const container = T => class TodoItem extends Component {
   static propTypes = {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
@@ -29,7 +28,7 @@ export default class TodoItem extends Component {
 
   render() {
     return (
-      <TodoItemComponent
+      <T
         {...this.props}
         {...this.state}
         handleDoubleClick={this.handleDoubleClick}
@@ -38,3 +37,5 @@ export default class TodoItem extends Component {
     )
   }
 }
+
+export default container
