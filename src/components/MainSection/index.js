@@ -1,29 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import TodoItem from './TodoItem'
-import Footer from './Footer'
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
-
-const TODO_FILTERS = {
-  [SHOW_ALL]: () => true,
-  [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
-}
+import TodoItem from '../../containers/TodoItem'
+import Footer from '../Footer'
 
 export default class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
-  }
-
-  state = { filter: SHOW_ALL }
-
-  handleClearCompleted = () => {
-    this.props.actions.clearCompleted()
-  }
-
-  handleShow = filter => {
-    this.setState({ filter })
+    actions: PropTypes.object.isRequired,
+    filteredTodos: PropTypes.array.isRequired,
+    completedCount: PropTypes.number.isRequired,
+    filter: PropTypes.string.isRequired,
+    handleShow: PropTypes.func.isRequired,
+    handleClearCompleted: PropTypes.func.isRequired,
   }
 
   renderToggleAll(completedCount) {
@@ -39,8 +27,7 @@ export default class MainSection extends Component {
   }
 
   renderFooter(completedCount) {
-    const { todos } = this.props
-    const { filter } = this.state
+    const { todos, filter, handleShow, handleClearCompleted } = this.props
     const activeCount = todos.length - completedCount
 
     if (todos.length) {
@@ -48,21 +35,14 @@ export default class MainSection extends Component {
         <Footer completedCount={completedCount}
                 activeCount={activeCount}
                 filter={filter}
-                onClearCompleted={this.handleClearCompleted}
-                onShow={this.handleShow} />
+                onClearCompleted={handleClearCompleted}
+                onShow={handleShow} />
       )
     }
   }
 
   render() {
-    const { todos, actions } = this.props
-    const { filter } = this.state
-
-    const filteredTodos = todos.filter(TODO_FILTERS[filter])
-    const completedCount = todos.reduce((count, todo) =>
-      todo.completed ? count + 1 : count,
-      0
-    )
+    const { actions, filteredTodos, completedCount } = this.props
 
     return (
       <section className="main">
