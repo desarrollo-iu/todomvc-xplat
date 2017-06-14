@@ -13,7 +13,7 @@ const container = T => class Header extends Component {
   }
 
   render() {
-    return <T handleSave={this.handleSave} />
+    return <T handleSave={this.handleSave} {...this.props} />
   }
 }
 
